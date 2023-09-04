@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(document).on(`click`,`#get`,function(){
+        $.ajax({
+         'type':'Get',
+         'url':'https://forbec400.herokuapp.com/api/forbest400?limit=10'
+        }).done(function () {
+          for(var i=0 ;i< data.length ;i++){
+            $('#list').append(data[i].url+"<br>")
+          }
+          
+        })
+      })});
+    
+   
+  </script>
+ 
+ 
+</head>
+<style>
+    #get{
+      background-color: blue;
+      display: inline-block;
+      cursor: pointer;
+    }  </style>
+ 
+<body>
+  <div id="get">GET DATA</div>
+  <div id="list"></div>
+</body>
+</html>
